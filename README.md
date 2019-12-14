@@ -2,5 +2,5 @@
 
 ## Dependencies
 Make sure to install:
-    Oh-My-Zsh
-    Vundle
+    -Oh-My-Zsh
+    -Vundle
