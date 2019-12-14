@@ -58,8 +58,8 @@ set autoindent
 set cursorline
 set showmatch
 "
-set colorcolumn=100 
-highlight ColorColumn ctermbg=212
+" set colorcolumn=100 
+" highlight ColorColumn ctermbg=212
 set ruler
 let python_highlight_all=1
 
