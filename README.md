@@ -1,6 +1,6 @@
 # .dotfiles
 
 ## Dependencies
+
 Make sure to install:
-    -Oh-My-Zsh
-    -Vundle
+Oh-my-Zsh and Vundle
