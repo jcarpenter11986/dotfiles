@@ -1,3 +1,5 @@
+packadd! dracula
+
 " Syntax highlighting and colorscheme
 syntax on
 " colorscheme dracula
