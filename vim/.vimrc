@@ -1,4 +1,4 @@
-packadd! dracula
+" packadd! dracula
 
 " Syntax highlighting and colorscheme
 syntax on
