@@ -1,8 +1,8 @@
 [submodule "config/dracula-zsh"]
-	path = config/dracula-zsh
+	path = dracula/dracula-zsh
 	url = https://github.com/dracula/zsh.git
 [submodule "config/dracula-terminal"]
-	path = config/dracula-terminal
+	path = dracula/dracula-terminal
 	url = https://github.com/dracula/terminal-app.git
 [submodule "zsh/.oh-my-zsh"]
 	path = zsh.stow/.oh-my-zsh
