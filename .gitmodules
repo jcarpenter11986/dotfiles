@@ -7,3 +7,6 @@
 [submodule "zsh/.oh-my-zsh"]
 	path = zsh.stow/.oh-my-zsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
+[submodule "dracula/dracula-iterm2"]
+	path = dracula/dracula-iterm2
+	url = https://github.com/dracula/iterm.git
