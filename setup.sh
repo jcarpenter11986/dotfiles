@@ -6,4 +6,4 @@
 git submodule update --init --recursive
 
 # Set up symlinks for config files
-stow -R zsh qutebrowser vim
+stow -R *.stow

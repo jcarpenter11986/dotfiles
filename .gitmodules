@@ -5,5 +5,5 @@
 	path = config/dracula-terminal
 	url = https://github.com/dracula/terminal-app.git
 [submodule "zsh/.oh-my-zsh"]
-	path = zsh/.oh-my-zsh
+	path = zsh.stow/.oh-my-zsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
