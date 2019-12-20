@@ -1,9 +1,10 @@
 # dotfiles
 
-This configuration is set up for Mac OS with the below installed:
+## Zsh
 
-* Homebrew
-* ZSH
-* Vim 8
-* Stow
-* qutebrowser
+The .zshrc assumes that .oh-my-zsh is installed in your home directory
+and the dracula theme for zsh is symlinked to the themes folder.
+
+## Vim
+
+The vim files assume Vim8 or higher.
