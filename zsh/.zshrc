@@ -93,9 +93,20 @@ fi
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Changing "ls" to "exa"
+alias ls='exa -al --color=always --group-directories-first' # my preferred listing
+alias la='exa -a --color=always --group-directories-first'  # all files and dirs
+alias ll='exa -l --color=always --group-directories-first'  # long format
+alias lt='exa -aT --color=always --group-directories-first' # tree listing
+
+# Git aliases
 alias graph="git log --all --decorate --oneline --graph"
-alias ls="ls -lAG"
+alias status="git status"
+alias commit="git commit -a"
+alias push="git push"
+alias pull="git pull"
+alias fetch="git fetch"
+
+# Run neofetch, just for fun
+neofetch
