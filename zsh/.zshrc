@@ -101,12 +101,12 @@ alias ll='exa -l --color=always --group-directories-first'  # long format
 alias lt='exa -aT --color=always --group-directories-first' # tree listing
 
 # Git aliases
-alias graph="git log --all --decorate --oneline --graph"
 alias status="git status"
 alias commit="git commit -a"
 alias push="git push"
 alias pull="git pull"
 alias fetch="git fetch"
+alias graph="git log --all --decorate --oneline --graph"
 
 # Run neofetch, just for fun
 neofetch
