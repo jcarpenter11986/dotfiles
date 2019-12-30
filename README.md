@@ -1,14 +1,22 @@
 # Jim's dotfiles
 
-# stow
-This dotfiles repo makes use of the Gnu Stow program to symlink
-files to the home directory. Each program has its own folder
-and can be stowed a la carte. Make sure you use the --target=$HOME
-option when stowing so that the files are linked properly. It
-is probably a good idea to read the man pages for stow as well.
+## Stow
+#First and foremost!
 
-# packages
-Each program has its folder which is a technically called a package
-by stow. Pick and choose which packages you want to stow. This is helpful
-because I may have dotfiles for programs you don't use, or maybe you just
-want to try my dot files, in which case you can always remove them via stow.
+I use GNU/Stow as the main symlinking program
+for these dotfiles. Instead of sitting right in my
+home diretory, they sit inside "packages". 
+
+After installing
+Stow, cd to the dotfiles directory and run
+stow --target=$HOME packagename where packagname is the actual
+name of the folder you want to symlink to your home directory.
+
+There is a package for each program that contains various
+configuration files, so pick and choose what you want.
+Read the Stow man pages for more info on reverting, etc.
+
+## Vim
+
+My Vim config uses the Vim-Plug plugin manager.
+
