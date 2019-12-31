@@ -1,1 +1,1 @@
-/Users/jcarpenter/Git/dracula-zsh/dracula.zsh-theme
+/home/jcarpenter/Git/dotfiles/zsh/.oh-my-zsh/dracula/dracula.zsh-theme
