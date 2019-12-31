@@ -115,6 +115,3 @@ alias free='free -m'                      # show sizes in MB
 
 ### SET VIM AS MANPAGER ###
 export MANPAGER="/bin/sh -c \"col -b | vim --not-a-term -c 'set ft=man ts=8 nomod nolist noma' -\""
-
-# Run neofetch, just for fun
-neofetch
