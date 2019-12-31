@@ -1,7 +1,7 @@
 # Jim's dotfiles
 
 ## Stow
-#First and foremost!
+# First and foremost!
 
 I use GNU/Stow as the main symlinking program
 for these dotfiles. Instead of sitting right in my
