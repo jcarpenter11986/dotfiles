@@ -4,11 +4,11 @@ parse_git_branch() {
 }
 
 # Style and set the prompt
-PS1="\[\033[01;36m\]\u@\h";
-PS1+="\[\033[00m\]:";
-PS1+="\[\033[01;127m\]\W";
+#PS1="\[\033[01;36m\]\u@\h";
+#PS1+="\[\033[00m\]:";
+PS1="\[\033[01;127m\]\w";
 PS1+="\[\033[00m\]\[\033[01;35m\]\$(parse_git_branch)"
-PS1+="\[\033[00m\]\$ "
+PS1+=" \[\033[00m\]\$ "
 export PS1;
 
 # Convenient command aliases
