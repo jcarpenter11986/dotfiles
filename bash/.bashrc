@@ -13,3 +13,4 @@ export PS1;
 
 # Convenient command aliases
 alias ls="ls -lAG";
+alias graph="git log --all --oneline --graph --decorate"
