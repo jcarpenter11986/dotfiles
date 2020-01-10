@@ -77,9 +77,9 @@ nnoremap <leader>j :bn<CR>
 nnoremap <leader>k :bp<CR>
 
 " Autocomplete '' "" () [] {} in insert mode
-inoremap ) ()<Esc>i
-inoremap ] []<Esc>i
-inoremap } {}<Esc>i
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+inoremap { {}<Esc>i
 inoremap '' ''<Esc>i
 inoremap "" ""<Esc>i
 
