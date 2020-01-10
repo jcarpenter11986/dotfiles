@@ -29,7 +29,6 @@ let g:ctrlp_working_path_mode = 'r'
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
 " Airline
-let g:airline_theme='kolor'
 let g:airline#extensions#tabline#enabled = 1
 
 " ===GLOBAL EDITOR SETTINGS===
@@ -77,9 +76,9 @@ nnoremap <leader>j :bn<CR>
 nnoremap <leader>k :bp<CR>
 
 " Autocomplete '' "" () [] {} in insert mode
-inoremap ) ()<Esc>i
-inoremap ] []<Esc>i
-inoremap } {}<Esc>i
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+inoremap { {}<Esc>i
 inoremap '' ''<Esc>i
 inoremap "" ""<Esc>i
 
