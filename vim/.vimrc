@@ -29,40 +29,37 @@ endif
 " Unmanaged plugin (manually installed and updated)
 " Plug '~/my-prototype-plugin'
 
-" ===PLUGINS START HERE===
-call plug#begin('~/.vim/plugged')
 
-" Colorscheme
+
+" ===LOAD PLUGINS===
+call plug#begin('~/.vim/plugged') " Call plugin start ---
+
+" Dracula colorscheme
 Plug 'dracula/vim', { 'as': 'dracula' }
 
-" Fuzzy file finding and MRU
-Plug 'https://github.com/ctrlpvim/ctrlp.vim'
+" CtrlP fuzzy file finding
+Plug 'ctrlpvim/ctrlp.vim'
 
-" Tree view of files
-Plug 'https://github.com/preservim/nerdtree', { 'on':  'NERDTreeToggle' }
+" NERDTree Tree view of files
+Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
 
-" ===PLUGINS END HERE===
-call plug#end()
+" Airline status line
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-" Proper encoding
-set encoding=utf-8
+" Fugitive git wrapper
+Plug 'tpope/vim-fugitive' 
 
-" Line numbering
-set nu
-set relativenumber
-set numberwidth=3
+" Jedi completion for Python
+Plug 'davidhalter/jedi-vim'
 
-" Highlighting
-set hlsearch
+call plug#end() " Call plugin end ---
 
-" Indentation
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-set autoindent
 
-" CtrlP settings
+
+" ===PLUGIN SETTINGS===
+
+" CtrlP
 " Setup some default ignores
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
@@ -73,5 +70,65 @@ let g:ctrlp_custom_ignore = {
 " control. It also supports works with .svn, .hg, .bzr.
 let g:ctrlp_working_path_mode = 'r'
 
-" NERDTree settings
+" NERDTree
 map <C-n> :NERDTreeToggle<CR>
+
+" Airline
+let g:airline_theme='kolor'
+let g:airline#extensions#tabline#enabled = 1
+
+
+" ===GLOBAL EDITOR SETTINGS===
+
+" Necessary for some plugins
+set nocompatible
+set hidden
+set encoding=utf-8
+set showtabline=0
+
+" Line numbering
+set number
+set relativenumber
+set numberwidth=3
+
+" Search options
+set hlsearch
+set ignorecase
+
+" Indentation
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+
+" Mouse compatibility
+set mouse=a
+
+" Splitting windows
+set splitbelow
+set splitright
+
+
+
+" ===VIM KEYBINDINGS===
+
+" Leader key
+let mapleader = ' '
+
+" Moving between window panes
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Switching buffers
+nnoremap <leader>j :bn<CR>
+nnoremap <leader>k :bp<CR>
+
+" Autocomplete '' "" () [] {} in insert mode
+inoremap () ()<Esc>i
+inoremap [] []<Esc>i
+inoremap {} {}<Esc>i
+inoremap '' ''<Esc>i
+inoremap "" ""<Esc>i
