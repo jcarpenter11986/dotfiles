@@ -52,6 +52,10 @@ set splitright
 let g:netrw_banner=0       " get rid of annoying banner
 let g:netrw_liststyle=3    " tree view
 
+" airline settings
+let g:airline#extensions#tabline#enabled = 1
+
+
 " ===KEYBINDINGS===
 " Leader key
 let mapleader = ' '
