@@ -9,8 +9,6 @@ call plug#begin('~/.vim/plugged') " Call plugin start ---
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline'
 Plug 'jreybert/vimagit'
-"Plug 'vim-airline/vim-airline-themes'
-"Plug 'tpope/vim-fugitive'
 call plug#end() " Call plugin end ---
 
 " ===GLOBAL EDITOR SETTINGS===
@@ -28,6 +26,9 @@ set showtabline=0
 set number
 set relativenumber
 set numberwidth=3
+
+" Highlight cursorline
+set cursorline
 
 " Search options
 set hlsearch
@@ -47,8 +48,9 @@ set mouse=a
 set splitbelow
 set splitright
 
-" Get rid of Netrw banner
-let g:netrw_banner=0
+" netrw settings
+let g:netrw_banner=0       " get rid of annoying banner
+let g:netrw_liststyle=3    " tree view
 
 " ===KEYBINDINGS===
 " Leader key
