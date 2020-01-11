@@ -1,4 +1,6 @@
-" ===VIM PLUG===
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"   VIM PLUG
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -11,15 +13,32 @@ Plug 'vim-airline/vim-airline'
 Plug 'jreybert/vimagit'
 call plug#end() " Call plugin end ---
 
-" ===GLOBAL EDITOR SETTINGS===
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"   GLOBAL EDITOR SETTINGS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" No vi
 set nocompatible
+
+" Colorscheme stuff
 syntax enable
 colorscheme dracula
-filetype plugin on
+set background=dark
+
+" Support plugins and language indentation
+filetype indent plugin on
+
+" Fuzzy file style
 set path+=**
 set wildmenu
+
+" Keep buffers available in the background
 set hidden
+
+" Encoding and line endings
 set encoding=utf-8
+set fileformat=dos
+
+" Tabs... why?
 set showtabline=0
 
 " Line numbering
@@ -32,14 +51,8 @@ set cursorline
 
 " Search options
 set hlsearch
+set incsearch
 set ignorecase
-
-" Indentation
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-set autoindent
 
 " Mouse compatibility
 set mouse=a
@@ -48,6 +61,26 @@ set mouse=a
 set splitbelow
 set splitright
 
+" Leader key
+let mapleader = ','
+
+" Cycle open buffers
+nnoremap <silent> <leader>b :bn<CR>
+
+" Cycle open windows
+nnoremap <silent> <leader>w <C-W>w
+
+" Turn off search highlight
+nnoremap <leader>h :nohl
+
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"   PLUGIN SETTINGS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " netrw settings
 let g:netrw_banner=0       " get rid of annoying banner
 let g:netrw_liststyle=3    " tree view
@@ -56,23 +89,25 @@ let g:netrw_liststyle=3    " tree view
 let g:airline#extensions#tabline#enabled = 1
 
 
-" ===KEYBINDINGS===
-" Leader key
-let mapleader = ' '
-
-" Cycle open buffers
-nnoremap <silent> <leader>b :bn<CR>
-
-" Cycle open windows
-nnoremap <silent> <leader>w <C-W>w
-
-" Autocomplete '' "" () [] {} in insert mode
-inoremap ( ()<Esc>i
-inoremap [ []<Esc>i
-inoremap { {}<Esc>i
-inoremap '' ''<Esc>i
-inoremap "" ""<Esc>i
-
-" ===AUTO COMMANDS===
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"   ALL FILE TYPES
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Automatically deletes all trailing whitespace on save.
 autocmd BufWritePre * %s/\s\+$//e
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"   PYTHON FILES
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PEP 8
+au FileType python set tabstop=4
+au FileType python set softtabstop=4
+au FileType python set shiftwidth=4
+au FileType python set expandtab
+au FileType python set autoindent
+
+" Autocomplete '' "" () [] {} in insert mode
+au FileType python inoremap ( ()<Esc>i
+au FileType python inoremap [ []<Esc>i
+au FileType python inoremap { {}<Esc>i
+au FileType python inoremap ' ''<Esc>i
+au FileType python inoremap " ""<Esc>i
