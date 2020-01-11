@@ -1,7 +1,22 @@
+" ===VIM PLUG===
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged') " Call plugin start ---
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'vim-airline/vim-airline'
+Plug 'jreybert/vimagit'
+"Plug 'vim-airline/vim-airline-themes'
+"Plug 'tpope/vim-fugitive'
+call plug#end() " Call plugin end ---
+
 " ===GLOBAL EDITOR SETTINGS===
 set nocompatible
 syntax enable
-colorscheme delek
+colorscheme dracula
 filetype plugin on
 set path+=**
 set wildmenu
