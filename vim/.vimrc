@@ -9,8 +9,6 @@ call plug#begin('~/.vim/plugged') " Call plugin start ---
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline'
 Plug 'jreybert/vimagit'
-"Plug 'vim-airline/vim-airline-themes'
-"Plug 'tpope/vim-fugitive'
 call plug#end() " Call plugin end ---
 
 " ===GLOBAL EDITOR SETTINGS===
