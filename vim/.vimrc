@@ -30,6 +30,7 @@ filetype indent plugin on
 " Fuzzy file style
 set path+=**
 set wildmenu
+set wildmode=longest:full,full
 
 " Keep buffers available in the background
 set hidden
@@ -54,24 +55,32 @@ set hlsearch
 set incsearch
 set ignorecase
 
+" Match braces
+set showmatch
+
 " Mouse compatibility
 set mouse=a
-
-" Splitting windows
-set splitbelow
-set splitright
 
 " Leader key
 let mapleader = ','
 
+" Splitting windows
+set splitbelow
+set splitright
+nnoremap <leader>v :vsp<cr>
+nnoremap <leader>s :sp<cr>
+
 " Cycle open buffers
 nnoremap <silent> <leader>b :bn<CR>
 
-" Cycle open windows
-nnoremap <silent> <leader>w <C-W>w
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 
 " Turn off search highlight
-nnoremap <leader>h :nohl
+nnoremap <silent> <leader>h :nohl<cr>
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
@@ -104,6 +113,9 @@ au FileType python set softtabstop=4
 au FileType python set shiftwidth=4
 au FileType python set expandtab
 au FileType python set autoindent
+
+" enable all Python syntax highlighting features
+let python_highlight_all = 1
 
 " Autocomplete '' "" () [] {} in insert mode
 au FileType python inoremap ( ()<Esc>i
