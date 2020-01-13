@@ -11,7 +11,8 @@ endif
 call plug#begin('~/.vim/plugged') " Call plugin start ---
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline'
-Plug 'jreybert/vimagit'
+Plug 'tpope/vim-fugitive'
+"Plug 'jreybert/vimagit'
 call plug#end() " Call plugin end ---
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -37,9 +38,8 @@ set wildmode=longest:full,full
 " Keep buffers available in the background
 set hidden
 
-" Encoding and line endings
+" Encoding
 set encoding=utf-8
-set fileformat=dos
 
 " Tabs... why?
 set showtabline=0
@@ -111,15 +111,17 @@ autocmd BufWritePre * %s/\s\+$//e
 "   PYTHON FILES
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" enable all Python syntax highlighting features
+let python_highlight_all = 1
+
 " PEP 8
 au FileType python set tabstop=4
 au FileType python set softtabstop=4
 au FileType python set shiftwidth=4
+au FileType python set textwidth=70
 au FileType python set expandtab
 au FileType python set autoindent
-
-" enable all Python syntax highlighting features
-let python_highlight_all = 1
+au FileType python set fileformat=unix
 
 " Autocomplete '' "" () [] {} in insert mode
 au FileType python inoremap ( ()<Esc>i
@@ -127,3 +129,10 @@ au FileType python inoremap [ []<Esc>i
 au FileType python inoremap { {}<Esc>i
 au FileType python inoremap ' ''<Esc>i
 au FileType python inoremap " ""<Esc>i
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"   JS HTML CSS FILES
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+au BufNewFile,BufRead *.js, *.html, *.css set tabstop=2
+au BufNewFile,BufRead *.js, *.html, *.css set softtabstop=2
+au BufNewFile,BufRead *.js, *.html, *.css set shiftwidth=2
