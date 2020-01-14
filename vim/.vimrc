@@ -93,14 +93,15 @@ set whichwrap+=<,>,h,l
 "   PLUGIN SETTINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" netrw settings
+" netrw
 let g:netrw_banner=0       " get rid of annoying banner
 let g:netrw_liststyle=3    " tree view
+nnoremap <silent> <leader>e :Explore<CR>
 
-" airline settings
+" airline
 let g:airline#extensions#tabline#enabled = 1 " display open buffers at the top
 
-" fzf settings
+" fzf
 let g:fzf_layout = {'window':'15new'}
 nnoremap <silent> <leader>fb :Buffers<CR>
 nnoremap <silent> <leader>fc :Commits<CR>
@@ -108,10 +109,18 @@ nnoremap <silent> <leader>fC :BCommits<CR>
 nnoremap <silent> <leader>ff :Files<CR>
 nnoremap <silent> <leader>fg :GFiles<CR>
 nnoremap <silent> <leader>fG :GFiles?<CR>
-nnoremap <silent> <leader>fh :History<CR>
-nnoremap <silent> <leader>fl :Lines
-nnoremap <silent> <leader>fr :Rg
+nnoremap <silent> <leader>fh :History:<CR>
+nnoremap <silent> <leader>fH :History<CR>
+nnoremap <silent> <leader>fl :Lines<CR>
+nnoremap <silent> <leader>fL :BLines<CR>
+nnoremap <silent> <leader>fr :Rg<CR>
 let $FZF_DEFAULT_COMMAND = "fd -t f -E \'*.{class,dll,exe,jar,o,pyc,so,war}\'"
+
+" fugitive
+nnoremap <silent> <leader>gs :Gstatus<CR>
+nnoremap <silent> <leader>gw :Gwrite<CR>
+nnoremap <silent> <leader>gc :Gcommit<CR>
+nnoremap <silent> <leader>gp :Gpush<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   ALL FILE TYPES
