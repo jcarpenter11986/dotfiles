@@ -16,6 +16,17 @@ Plug 'tpope/vim-fugitive'
 call plug#end() " Call plugin end ---
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"   PLUGIN SETTINGS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" netrw settings
+let g:netrw_banner=0       " get rid of annoying banner
+let g:netrw_liststyle=3    " tree view
+
+" airline settings
+let g:airline#extensions#tabline#enabled = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   GLOBAL EDITOR SETTINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -27,10 +38,11 @@ syntax enable
 colorscheme dracula
 set background=dark
 
-" Support plugins and language indentation
+" Support for plugins and language indentation
 filetype indent plugin on
 
-" Fuzzy file style
+" Fuzzy file search
+" Make sure your CWD is the root of your project
 set path+=**
 set wildmenu
 set wildmode=longest:full,full
@@ -69,8 +81,10 @@ let mapleader = ' '
 " Splitting windows
 set splitbelow
 set splitright
-nnoremap <leader>v :vsp<cr>
-nnoremap <leader>s :sp<cr>
+
+" Open netrw to the right side
+nnoremap <leader>o :vsp .<cr>
+nnoremap <leader>O :sp .<cr>
 
 " Cycle open buffers
 nnoremap <leader>j :bn<cr>
@@ -88,17 +102,6 @@ nnoremap <silent> <leader><space> :nohl<cr>
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"   PLUGIN SETTINGS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" netrw settings
-let g:netrw_banner=0       " get rid of annoying banner
-let g:netrw_liststyle=3    " tree view
-
-" airline settings
-let g:airline#extensions#tabline#enabled = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   ALL FILE TYPES
@@ -133,6 +136,6 @@ au FileType python inoremap " ""<Esc>i
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   JS HTML CSS FILES
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-au BufNewFile,BufRead *.js, *.html, *.css set tabstop=2
-au BufNewFile,BufRead *.js, *.html, *.css set softtabstop=2
-au BufNewFile,BufRead *.js, *.html, *.css set shiftwidth=2
+au BufNewFile,BufRead *.js,*.html,*.css set tabstop=2
+au BufNewFile,BufRead *.js,*.html,*.css set softtabstop=2
+au BufNewFile,BufRead *.js,*.html,*.css set shiftwidth=2
