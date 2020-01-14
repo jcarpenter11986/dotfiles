@@ -24,15 +24,8 @@ export MANPAGER="/bin/sh -c \"col -b | vim --not-a-term -c 'set ft=man ts=8 nomo
 ##############################################################################
 #                              PATH
 ##############################################################################
-PATH+=/usr/local/sbin
-PATH+=/Users/jcarpenter/bin
-PATH+=/usr/local/bin
-PATH+=/usr/local/bin
-PATH+=/usr/bin
-PATH+=/bin
-PATH+=/usr/sbin
-PATH+=/sbin
-PATH+=/usr/local/share/dotnet
+
+PATH+=:/Users/jcarpenter/bin
 
 ##############################################################################
 #                              GLOBALS
