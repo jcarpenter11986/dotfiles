@@ -12,19 +12,9 @@ call plug#begin('~/.vim/plugged') " Call plugin start ---
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
-"Plug 'jreybert/vimagit'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 call plug#end() " Call plugin end ---
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"   PLUGIN SETTINGS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" netrw settings
-let g:netrw_banner=0       " get rid of annoying banner
-let g:netrw_liststyle=3    " tree view
-
-" airline settings
-let g:airline#extensions#tabline#enabled = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   GLOBAL EDITOR SETTINGS
@@ -82,10 +72,6 @@ let mapleader = ' '
 set splitbelow
 set splitright
 
-" Open netrw to the right side
-nnoremap <leader>o :vsp .<cr>
-nnoremap <leader>O :sp .<cr>
-
 " Cycle open buffers
 nnoremap <leader>j :bn<cr>
 nnoremap <leader>k :bp<cr>
@@ -102,6 +88,30 @@ nnoremap <silent> <leader><space> :nohl<cr>
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"   PLUGIN SETTINGS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" netrw settings
+let g:netrw_banner=0       " get rid of annoying banner
+let g:netrw_liststyle=3    " tree view
+
+" airline settings
+let g:airline#extensions#tabline#enabled = 1 " display open buffers at the top
+
+" fzf settings
+let g:fzf_layout = {'window':'15new'}
+nnoremap <silent> <leader>fb :Buffers<CR>
+nnoremap <silent> <leader>fc :Commits<CR>
+nnoremap <silent> <leader>fC :BCommits<CR>
+nnoremap <silent> <leader>ff :Files<CR>
+nnoremap <silent> <leader>fg :GFiles<CR>
+nnoremap <silent> <leader>fG :GFiles?<CR>
+nnoremap <silent> <leader>fh :History<CR>
+nnoremap <silent> <leader>fl :Lines
+nnoremap <silent> <leader>fr :Rg
+let $FZF_DEFAULT_COMMAND = "fd -t f -E \'*.{class,dll,exe,jar,o,pyc,so,war}\'"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   ALL FILE TYPES

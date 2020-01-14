@@ -1,4 +1,6 @@
-### PROMPT ###
+##############################################################################
+#                              PROMPT
+##############################################################################
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
@@ -14,11 +16,35 @@ alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 
-### SET VIM AS MANPAGER ###
+##############################################################################
+#                              SET VIM AS MANPAGER
+##############################################################################
 export MANPAGER="/bin/sh -c \"col -b | vim --not-a-term -c 'set ft=man ts=8 nomod nolist noma' -\""
 
-### PATH ###
-PATH+=/usr/local/sbin:/Users/jcarpenter/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet
+##############################################################################
+#                              PATH
+##############################################################################
+PATH+=/usr/local/sbin
+PATH+=/Users/jcarpenter/bin
+PATH+=/usr/local/bin
+PATH+=/usr/local/bin
+PATH+=/usr/bin
+PATH+=/bin
+PATH+=/usr/sbin
+PATH+=/sbin
+PATH+=/usr/local/share/dotnet
 
-### GLOBALS ###
+##############################################################################
+#                              GLOBALS
+##############################################################################
 EDITOR='vim'
+
+##############################################################################
+#                              FZF
+##############################################################################
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+if hash fd 2> /dev/null; then
+    export FZF_DEFAULT_COMMAND="fd -LHI -t f -E '.{git,svn,DS_Store}'"
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    export FZF_ALT_C_COMMAND="fd -LHI -t d -E '.{git,svn}'"
+fi
