@@ -152,6 +152,9 @@ au FileType python inoremap { {}<Esc>i
 au FileType python inoremap ' ''<Esc>i
 au FileType python inoremap " ""<Esc>i
 
+" Run Python file
+nnoremap <leader>r :!python3 %<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   JS HTML CSS FILES
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
