@@ -146,14 +146,16 @@ au FileType python set autoindent
 au FileType python set fileformat=unix
 
 " Autocomplete '' "" () [] {} in insert mode
-au FileType python inoremap ( ()<Esc>i
-au FileType python inoremap [ []<Esc>i
-au FileType python inoremap { {}<Esc>i
-au FileType python inoremap ' ''<Esc>i
-au FileType python inoremap " ""<Esc>i
+"au FileType python inoremap ( ()<Esc>i
+"au FileType python inoremap [ []<Esc>i
+"au FileType python inoremap { {}<Esc>i
+"au FileType python inoremap ' ''<Esc>i
+"au FileType python inoremap " ""<Esc>i
 
 " Run Python file
-nnoremap <leader>r :!python3 %<CR>
+nnoremap <leader>r :!ipython %<CR>
+nnoremap <leader>R :!ipython -i %<CR>
+nnoremap <leader>l :!pylint %<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   JS HTML CSS FILES
