@@ -12,8 +12,6 @@ call plug#begin('~/.vim/plugged') " Call plugin start ---
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-"Plug 'junegunn/fzf.vim'
 call plug#end() " Call plugin end ---
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -49,7 +47,6 @@ set showtabline=0
 " Line numbering
 set number
 set relativenumber
-set numberwidth=3
 
 " Highlight cursorline
 set cursorline
@@ -73,14 +70,14 @@ set splitbelow
 set splitright
 
 " Cycle open buffers
-nnoremap <leader>j :bn<cr>
-nnoremap <leader>k :bp<cr>
+"nnoremap <leader>j :bn<cr>
+"nnoremap <leader>k :bp<cr>
 
 " Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+"map <C-j> <C-W>j
+"map <C-k> <C-W>k
+"map <C-h> <C-W>h
+"map <C-l> <C-W>l
 
 " Turn off search highlight
 nnoremap <silent> <leader><space> :nohl<cr>
@@ -100,21 +97,6 @@ nnoremap <silent> <leader>e :Explore<CR>
 
 " airline
 let g:airline#extensions#tabline#enabled = 1 " display open buffers at the top
-
-" fzf
-let g:fzf_layout = {'window':'15new'}
-nnoremap <silent> <leader>fb :Buffers<CR>
-nnoremap <silent> <leader>fc :Commits<CR>
-nnoremap <silent> <leader>fC :BCommits<CR>
-nnoremap <silent> <leader>ff :Files<CR>
-nnoremap <silent> <leader>fg :GFiles<CR>
-nnoremap <silent> <leader>fG :GFiles?<CR>
-nnoremap <silent> <leader>fh :History:<CR>
-nnoremap <silent> <leader>fH :History<CR>
-nnoremap <silent> <leader>fl :Lines<CR>
-nnoremap <silent> <leader>fL :BLines<CR>
-nnoremap <silent> <leader>fr :Rg<CR>
-let $FZF_DEFAULT_COMMAND = "fd -t f -E \'*.{class,dll,exe,jar,o,pyc,so,war}\'"
 
 " fugitive
 nnoremap <silent> <leader>gs :Gstatus<CR>
@@ -144,13 +126,6 @@ au FileType python set textwidth=70
 au FileType python set expandtab
 au FileType python set autoindent
 au FileType python set fileformat=unix
-
-" Autocomplete '' "" () [] {} in insert mode
-"au FileType python inoremap ( ()<Esc>i
-"au FileType python inoremap [ []<Esc>i
-"au FileType python inoremap { {}<Esc>i
-"au FileType python inoremap ' ''<Esc>i
-"au FileType python inoremap " ""<Esc>i
 
 " Run Python file
 nnoremap <leader>r :!ipython %<CR>
