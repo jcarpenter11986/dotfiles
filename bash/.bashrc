@@ -23,10 +23,13 @@ alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 
 ##############################################################################
-#                              PATH
+#                              ENVARS
 ##############################################################################
 
 PATH+=:/Users/jcarpenter/bin
+PATH+=:/Library/Frameworks/Python.framework/Versions/3.8/bin
+
+[ -f ~/.KEY_VALUE ] && source ~/.KEY_VALUE
 
 ##############################################################################
 #                              GLOBALS
@@ -36,7 +39,6 @@ EDITOR='vim'
 ##############################################################################
 #                              FZF
 ##############################################################################
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 if hash fd 2> /dev/null; then
     export FZF_DEFAULT_COMMAND="fd -LHI -t f -E '.{git,svn,DS_Store}'"
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -57,3 +59,5 @@ if type brew &>/dev/null; then
     done
   fi
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
