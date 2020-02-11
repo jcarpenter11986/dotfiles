@@ -81,4 +81,4 @@ alias free='free -m'                      # show sizes in MB
 
 EDITOR='vim'
 
-PATH=$PATH:/Users/jcarpenter/bin:/Users/jcarpenter/.fzf/bin:/Library/Frameworks/Python.framework/Versions/3.8/bin
+PATH=$PATH:/Users/jcarpenter/bin:/Users/jcarpenter/.fzf/bin:/Library/Frameworks/Python.framework/Versions/3.8/bin:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin

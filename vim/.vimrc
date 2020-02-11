@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged') " Call plugin start ---
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
+Plug 'davidhalter/jedi-vim'
 call plug#end() " Call plugin end ---
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
