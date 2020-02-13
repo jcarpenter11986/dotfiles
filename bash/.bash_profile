@@ -10,17 +10,17 @@ PS1+=" \[\033[00m\]\$ "
 export PS1;
 
 # TO DO
-# add git status to prompt so that you know if your branch is no longer the
-# same as remote.
+# Add a ligature or symbol to the end of prompt to indicate if there are
+# modified or untracked changes.
 
 ##############################################################################
 #                              ALIASES
 ##############################################################################
 alias ls="ls -lAG";
 alias graph="git log --all --oneline --graph --decorate"
-alias cp="cp -i"                          # confirm before overwriting something
-alias df='df -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB
+alias cp="cp -i"                        # confirm before overwriting something
+alias df='df -h'                        # human-readable sizes
+alias free='free -m'                    # show sizes in MB
 
 ##############################################################################
 #                              ENVARS
@@ -45,6 +45,8 @@ if hash fd 2> /dev/null; then
     export FZF_ALT_C_COMMAND="fd -LHI -t d -E '.{git,svn}'"
 fi
 
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 ##############################################################################
 #                              HOMEBREW COMPLETIONS
 ##############################################################################
@@ -60,4 +62,3 @@ if type brew &>/dev/null; then
   fi
 fi
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
