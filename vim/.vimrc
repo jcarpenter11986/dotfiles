@@ -233,7 +233,7 @@ let g:airline#extensions#tabline#enabled = 1 " display open buffers at the top
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Automatically deletes all trailing whitespace on save.
-autocmd BufWritePre * %s/\s\+$//e
+" autocmd BufWritePre * %s/\s\+$//e
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   PYTHON FILES
