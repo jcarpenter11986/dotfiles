@@ -31,7 +31,7 @@ $ stow bash --target=$HOME
 
 ## Todotxt
 
-I use (todo.txt)[https://github.com/todotxt/todo.txt] as part of my GTD productivity setup.
+I use [todo.txt](https://github.com/todotxt/todo.txt) as part of my GTD productivity setup.
 This is the main config file with the colors and settings that I want. This will not work
 properly with terminal.app because it doesn't support true color, but it does
 work nicely with iTerm2.
