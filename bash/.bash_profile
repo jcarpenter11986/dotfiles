@@ -35,7 +35,7 @@ alias graph="git log --all --oneline --graph --decorate"
 alias cp="cp -i"                        # confirm before overwriting something
 alias df='df -h'                        # human-readable sizes
 alias free='free -m'                    # show sizes in MB
-alias t="todo.sh -n"
+alias t="todo.sh -A -n"
 alias grep="grep --color=auto"
 
 ##############################################################################
