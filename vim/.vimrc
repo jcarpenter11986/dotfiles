@@ -10,6 +10,7 @@ endif
 
 call plug#begin('~/.vim/plugged') " Call plugin start ---
 Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive'
 call plug#end() " Call plugin end ---
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -23,6 +24,7 @@ set nocompatible
 packadd! dracula_pro
 syntax enable
 colorscheme dracula_pro
+highlight Normal ctermbg=None
 
 " Support for plugins and language indentation
 filetype indent plugin on
