@@ -23,7 +23,6 @@ set nocompatible
 packadd! dracula_pro
 syntax enable
 colorscheme dracula_pro
-set background=dark
 
 " Support for plugins and language indentation
 filetype indent plugin on
@@ -34,17 +33,8 @@ set path+=**
 set wildmenu
 set wildmode=longest:full,full
 
-" Give more space for displaying messages.
-set cmdheight=2
-
-" Keep buffers available in the background
-set hidden
-
 " Encoding
 set encoding=utf-8
-
-" Tabs... why?
-set showtabline=0
 
 " Line numbering
 set number
@@ -61,18 +51,9 @@ set ignorecase
 " Match braces
 set showmatch
 
-" Mouse compatibility
-set mouse=a
-
-" Leader key
-let mapleader = ' '
-
 " Splitting windows
 set splitbelow
 set splitright
-
-" Turn off search highlight
-nnoremap <silent> <leader><space> :nohl<cr>
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
@@ -97,19 +78,10 @@ let g:airline#extensions#tabline#enabled = 1 " display open buffers at the top
 let python_highlight_all = 1
 
 " PEP 8
-au FileType python set tabstop=4
-au FileType python set softtabstop=4
-au FileType python set shiftwidth=4
-au FileType python set textwidth=70
-au FileType python set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set textwidth=70
+set expandtab
 au FileType python set autoindent
-au FileType python set fileformat=unix
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"   JS HTML CSS FILES
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-au BufNewFile,BufRead *.js,*.html,*.css set tabstop=4
-au BufNewFile,BufRead *.js,*.html,*.css set softtabstop=4
-au BufNewFile,BufRead *.js,*.html,*.css set shiftwidth=4
-
-python import sys; sys.path.append("/usr/local/lib/python3.7/site-packages")
+set fileformat=unix
