@@ -9,7 +9,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged') " Call plugin start ---
-Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive'
 call plug#end() " Call plugin end ---
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -23,6 +24,7 @@ set nocompatible
 packadd! dracula_pro
 syntax enable
 colorscheme dracula_pro
+highlight Normal ctermbg=None
 
 " Support for plugins and language indentation
 filetype indent plugin on
@@ -59,29 +61,18 @@ set splitright
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"   PLUGIN SETTINGS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " netrw
 let g:netrw_banner=0       " get rid of annoying banner
 let g:netrw_liststyle=3    " tree view
 
-" airline
-let g:airline#extensions#tabline#enabled = 1 " display open buffers at the top
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"   PYTHON FILES
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
 
-" PEP 8
+" tabstops and indenting
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set textwidth=70
 set expandtab
-au FileType python set autoindent
+set autoindent
 set fileformat=unix
