@@ -108,6 +108,5 @@ alias grep="grep --color=auto"
 EDITOR="vim"
 export EDITOR
 
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
