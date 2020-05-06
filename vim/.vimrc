@@ -1,17 +1,3 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"   VIM PLUG
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-call plug#begin('~/.vim/plugged') " Call plugin start ---
-Plug 'vim-airline/vim-airline'
-Plug 'tpope/vim-fugitive'
-call plug#end() " Call plugin end ---
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   GLOBAL EDITOR SETTINGS
@@ -29,8 +15,7 @@ highlight Normal ctermbg=None
 " Support for plugins and language indentation
 filetype indent plugin on
 
-" Fuzzy file search
-" Make sure your CWD is the root of your project
+" Fuzzy file search for CWD
 set path+=**
 set wildmenu
 set wildmode=longest:full,full
@@ -61,14 +46,14 @@ set splitright
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
-" netrw
+" Netrw
 let g:netrw_banner=0       " get rid of annoying banner
 let g:netrw_liststyle=3    " tree view
 
-" enable all Python syntax highlighting features
+" Enable all Python syntax highlighting features
 let python_highlight_all = 1
 
-" tabstops and indenting
+" Tabstops and indenting
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -76,3 +61,29 @@ set textwidth=70
 set expandtab
 set autoindent
 set fileformat=unix
+
+" Statusline config
+function! GitBranch()
+      return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+  endfunction
+
+function! StatuslineGit()
+    let l:branchname = GitBranch()
+      return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+  endfunction
+
+set laststatus=2
+set statusline=
+set statusline+=%#PmenuSel#
+set statusline+=%{StatuslineGit()}
+set statusline+=%#LineNr#
+set statusline+=\ %f
+set statusline+=%m\
+set statusline+=%=
+set statusline+=%#CursorColumn#
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}\]
+set statusline+=\ %p%%
+set statusline+=\ %l:%c
+set statusline+=\ 
