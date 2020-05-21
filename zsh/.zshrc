@@ -103,6 +103,7 @@ alias free='free -m'                    # show sizes in MB
 alias t="todo.sh -A -n"
 alias grep="grep --color=auto"
 
+# Check for key file
 [ -f ~/.KEY_VALUE ] && source ~/.KEY_VALUE
 
 EDITOR="vim"
