@@ -54,17 +54,6 @@ EDITOR='vim'
 export EDITOR;
 
 ##############################################################################
-#                              FZF
-##############################################################################
-if hash fd 2> /dev/null; then
-    export FZF_DEFAULT_COMMAND="fd -LHI -t f -E '.{git,svn,DS_Store}'"
-    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-    export FZF_ALT_C_COMMAND="fd -LHI -t d -E '.{git,svn}'"
-fi
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-##############################################################################
 #                              HOMEBREW COMPLETIONS
 ##############################################################################
 
