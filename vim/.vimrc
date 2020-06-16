@@ -1,7 +1,7 @@
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   GLOBAL EDITOR SETTINGS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " No vi
 set nocompatible
@@ -41,6 +41,9 @@ set showmatch
 " Splitting windows
 set splitbelow
 set splitright
+
+" Enable mouse
+set mouse=a
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
