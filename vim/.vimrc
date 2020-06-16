@@ -49,14 +49,14 @@ set mouse=a
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
-" Netrw
+" Netrw settings
 let g:netrw_banner=0       " get rid of annoying banner
 let g:netrw_liststyle=3    " tree view
 
 " Enable all Python syntax highlighting features
 let python_highlight_all = 1
 
-" Tabstops and indenting
+" Python friendly tabstops and indenting
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
