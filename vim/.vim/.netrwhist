@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =9
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/Users/jcarpenter/git/nlsd_tech'
 let g:netrw_dirhist_9='/Users/jcarpenter/git'
 let g:netrw_dirhist_8='/Users/jcarpenter/git/dotfiles'
 let g:netrw_dirhist_7='/Users/jcarpenter/git/dotfiles/bash'
