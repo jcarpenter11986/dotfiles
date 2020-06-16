@@ -1,4 +1,3 @@
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   GLOBAL EDITOR SETTINGS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -65,6 +64,10 @@ set expandtab
 set autoindent
 set fileformat=unix
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"   STATUS LINE
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Statusline config
 function! GitBranch()
       return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
@@ -90,3 +93,36 @@ set statusline+=\[%{&fileformat}\]
 set statusline+=\ %p%%
 set statusline+=\ %l:%c
 set statusline+=\ 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"   CUSTOM FUNCTIONS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function! Comment()
+  let ext = tolower(expand('%:e'))
+  if ext == 'php' || ext == 'rb' || ext == 'sh' || ext == 'py'
+    silent s/^/\#/
+  elseif ext == 'js'
+    silent s:^:\/\/:g
+  elseif ext == 'vim'
+    silent s:^:\":g
+  endif
+endfunction
+
+function! Uncomment()
+  let ext = tolower(expand('%:e'))
+  if ext == 'php' || ext == 'rb' || ext == 'sh' || ext == 'py'
+    silent s/^\#//
+  elseif ext == 'js'
+    silent s:^\/\/::g
+  elseif ext == 'vim'
+    silent s:^\"::g
+  endif
+endfunction
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"   CUSTOM KEY BINDINGS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+map <C-a> :call Comment()<CR>
+map <C-b> :call Uncomment()<CR>
