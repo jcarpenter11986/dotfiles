@@ -100,7 +100,7 @@ set statusline+=\
 
 function! Comment()
   let ext = tolower(expand('%:e'))
-  if ext == 'php' || ext == 'rb' || ext == 'sh' || ext == 'py'
+  if ext == 'php' || ext == 'rb' || ext == 'sh' || ext == 'py' || ext == 'cfg'
     silent s/^/\#/
   elseif ext == 'js'
     silent s:^:\/\/:g
@@ -111,7 +111,8 @@ endfunction
 
 function! Uncomment()
   let ext = tolower(expand('%:e'))
-  if ext == 'php' || ext == 'rb' || ext == 'sh' || ext == 'py'
+  if ext == 'php' || ext == 'rb' || ext == 'sh' || ext == 'py' || ext == 'cfg'
+
     silent s/^\#//
   elseif ext == 'js'
     silent s:^\/\/::g

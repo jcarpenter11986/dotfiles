@@ -19,10 +19,10 @@ PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\] @ \[\033[0;36m\]\h \w\[
 
 case $current_system in
     'Darwin'*)
-        alias ls="ls -lAG"
+        alias ls="ls -AG"
         ;;
     'Linux'*)
-        alias ls="ls -la --color=auto"
+        alias ls="ls --color=auto"
         ;;
     esac
         
@@ -32,6 +32,7 @@ alias df='df -h'                        # human-readable sizes
 alias free='free -m'                    # show sizes in MB
 alias t="todo.sh -A -n"
 alias grep="grep --color=auto"
+alias t="~/Documents/TodoTXT/todo.sh"
 
 ##############################################################################
 #                              ENVARS
