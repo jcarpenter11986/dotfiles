@@ -31,7 +31,7 @@ alias cp="cp -i"                        # confirm before overwriting something
 alias df='df -h'                        # human-readable sizes
 alias free='free -m'                    # show sizes in MB
 alias grep="grep --color=auto"
-alias t="todo.sh"
+alias t="todo.sh -ant"
 complete -F _todo t
 
 ##############################################################################
@@ -39,7 +39,7 @@ complete -F _todo t
 ##############################################################################
 
 PATH+=:/Users/jcarpenter/bin
-PATH+=:/Users/jcarpenter/Documents/TodoTXT/
+PATH+=:/Users/jcarpenter/Dropbox/TodoTXT/
 
 [ -f ~/.KEY_VALUE ] && source ~/.KEY_VALUE
 
@@ -66,4 +66,4 @@ if type brew &>/dev/null; then
 fi
 
 # TODO.TXT
-source /Users/jcarpenter/Documents/TodoTXT/todo_completion
+source /Users/jcarpenter/Dropbox/TodoTXT/todo_completion
