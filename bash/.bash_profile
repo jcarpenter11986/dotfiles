@@ -30,16 +30,16 @@ alias graph="git log --all --oneline --graph --decorate"
 alias cp="cp -i"                        # confirm before overwriting something
 alias df='df -h'                        # human-readable sizes
 alias free='free -m'                    # show sizes in MB
-alias t="todo.sh -A -n"
 alias grep="grep --color=auto"
-alias t="~/Documents/TodoTXT/todo.sh"
+alias t="todo.sh"
+complete -F _todo t
 
 ##############################################################################
 #                              ENVARS
 ##############################################################################
 
 PATH+=:/Users/jcarpenter/bin
-PATH+=:/Library/Frameworks/Python.framework/Versions/3.8/bin
+PATH+=:/Users/jcarpenter/Documents/TodoTXT/
 
 [ -f ~/.KEY_VALUE ] && source ~/.KEY_VALUE
 
@@ -50,9 +50,10 @@ PATH+=:/Library/Frameworks/Python.framework/Versions/3.8/bin
 export EDITOR='vim'
 
 ##############################################################################
-#                              HOMEBREW COMPLETIONS
+#                              COMPLETIONS
 ##############################################################################
 
+# HOMEBREW
 if type brew &>/dev/null; then
   HOMEBREW_PREFIX="$(brew --prefix)"
   if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
@@ -64,3 +65,5 @@ if type brew &>/dev/null; then
   fi
 fi
 
+# TODO.TXT
+source /Users/jcarpenter/Documents/TodoTXT/todo_completion
