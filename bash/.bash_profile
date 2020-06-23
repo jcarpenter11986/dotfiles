@@ -67,3 +67,4 @@ fi
 
 # TODO.TXT
 source /Users/jcarpenter/Dropbox/TodoTXT/todo_completion
+export PATH="/usr/local/sbin:$PATH"
