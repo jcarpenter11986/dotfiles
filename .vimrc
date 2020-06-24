@@ -1,15 +1,9 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"   GLOBAL EDITOR SETTINGS
+"   VIM BASE SETTINGS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " No vi
 set nocompatible
-
-" Colorscheme stuff
-packadd! dracula_pro
-syntax enable
-colorscheme dracula_pro
-highlight Normal ctermbg=None
 
 " Support for plugins and language indentation
 filetype indent plugin on
@@ -52,6 +46,23 @@ set whichwrap+=<,>,h,l
 let g:netrw_banner=0       " get rid of annoying banner
 let g:netrw_liststyle=3    " tree view
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"   DRACULA PRO COLORSCHEME
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" The dracula colorscheme will need to be added to ~/.vim
+" https://draculatheme.com/vim
+" or use dracula_pro if you have it
+
+packadd! dracula_pro
+syntax enable
+let g:dracula_colorterm=0
+colorscheme dracula_pro
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"   PYTHON SETTINGS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Enable all Python syntax highlighting features
 let python_highlight_all = 1
 
@@ -68,34 +79,23 @@ set fileformat=unix
 "   STATUS LINE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Statusline config
-function! GitBranch()
-      return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-  endfunction
-
-function! StatuslineGit()
-    let l:branchname = GitBranch()
-      return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
-  endfunction
+" Lightline will need to be added to ~/.vim 
+" https://github.com/itchyny/lightline.vim
 
 set laststatus=2
-set statusline=
-set statusline+=%#PmenuSel#
-set statusline+=%{StatuslineGit()}
-set statusline+=%#LineNr#
-set statusline+=\ %f
-set statusline+=%m\
-set statusline+=%=
-set statusline+=%#CursorColumn#
-set statusline+=\ %y
-set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
-set statusline+=\[%{&fileformat}\]
-set statusline+=\ %p%%
-set statusline+=\ %l:%c
-set statusline+=\ 
+let g:lightline = {
+      \ 'colorscheme': 'dracula_pro',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified'] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"   CUSTOM FUNCTIONS
+"   SMART COMMENTING
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 function! Comment()
@@ -120,10 +120,6 @@ function! Uncomment()
     silent s:^\"::g
   endif
 endfunction
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"   CUSTOM KEY BINDINGS
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 map <C-a> :call Comment()<CR>
 map <C-b> :call Uncomment()<CR>
