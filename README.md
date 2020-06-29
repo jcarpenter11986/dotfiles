@@ -18,3 +18,7 @@ without having to install any additional plugins.
 
 My .pylintrc extends the line length to 100 and whitelists cx-Oracle.
 Other than that, it uses the default settings.
+
+## Newsboat
+
+This is really just for me personally. This stores my urls and cache so that I can run newsboat from more than one machine and keep it in sync.

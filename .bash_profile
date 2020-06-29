@@ -19,10 +19,10 @@ PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\] @ \[\033[0;36m\]\h \w\[
 
 case $current_system in
     'Darwin'*)
-        alias ls="ls -AG"
+        alias ls="ls -AGl"
         ;;
     'Linux'*)
-        alias ls="ls --color=auto"
+        alias ls="ls --color=auto -Al"
         ;;
     esac
         
