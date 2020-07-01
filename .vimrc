@@ -35,16 +35,9 @@ set showmatch
 set splitbelow
 set splitright
 
-" Enable mouse
-set mouse=a
-
-" Configure backspace so it acts as it should act
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
-
-" Netrw settings
-let g:netrw_banner=0       " get rid of annoying banner
-let g:netrw_liststyle=3    " tree view
+" Configure backspace so it acts as it should
+" set backspace=eol,start,indent
+" set whichwrap+=<,>,h,l,[,]
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   DRACULA PRO COLORSCHEME
