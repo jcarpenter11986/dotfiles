@@ -36,8 +36,8 @@ set splitbelow
 set splitright
 
 " Configure backspace so it acts as it should
-" set backspace=eol,start,indent
-" set whichwrap+=<,>,h,l,[,]
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l,[,]
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   DRACULA PRO COLORSCHEME
