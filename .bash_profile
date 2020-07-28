@@ -40,6 +40,7 @@ complete -F _todo t
 
 PATH+=:/Users/jcarpenter/bin
 PATH+=:/Users/jcarpenter/Dropbox/TodoTXT/
+PATH+=:/Users/jcarpenter/Library/Python/3.8/bin
 
 [ -f ~/.KEY_VALUE ] && source ~/.KEY_VALUE
 
