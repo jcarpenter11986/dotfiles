@@ -32,8 +32,8 @@ set ignorecase
 set showmatch
 
 " Splitting windows
-set splitbelow
-set splitright
+" set splitbelow
+" set splitright
 
 " Configure backspace so it acts as it should
 set backspace=eol,start,indent
@@ -67,36 +67,6 @@ set textwidth=70
 set expandtab
 set autoindent
 set fileformat=unix
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"   SMART COMMENTING
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-function! Comment()
-  let ext = tolower(expand('%:e'))
-  if ext == 'php' || ext == 'rb' || ext == 'sh' || ext == 'py' || ext == 'cfg'
-    silent s/^/\#/
-  elseif ext == 'js'
-    silent s:^:\/\/:g
-  elseif ext == 'vim'
-    silent s:^:\":g
-  endif
-endfunction
-
-function! Uncomment()
-  let ext = tolower(expand('%:e'))
-  if ext == 'php' || ext == 'rb' || ext == 'sh' || ext == 'py' || ext == 'cfg'
-
-    silent s/^\#//
-  elseif ext == 'js'
-    silent s:^\/\/::g
-  elseif ext == 'vim'
-    silent s:^\"::g
-  endif
-endfunction
-
-map <C-a> :call Comment()<CR>
-map <C-b> :call Uncomment()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   CoC Settings
@@ -253,31 +223,14 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"   STATUS LINE
+"   PLUGIN SETTINGS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-function! GitBranch()
-      return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-  endfunction
+" Dsiplay buffers for Airline
+let g:airline#extensions#tabline#enabled = 1
 
-function! StatuslineGit()
-    let l:branchname = GitBranch()
-      return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
-  endfunction
+" Toggle Nerd Tree
+map <C-n> :NERDTreeToggle<CR>
 
-set laststatus=2
-set statusline=
-set statusline+=%#PmenuSel#
-set statusline+=%{StatuslineGit()}
-set statusline+=%#LineNr#
-set statusline+=\ %f
-set statusline+=%m\
-set statusline+=%=
-set statusline+=%#CursorColumn#
-set statusline+=\ %y
-set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
-set statusline+=\[%{&fileformat}\]
-set statusline+=\ %p%%
-set statusline+=\ %l:%c
-set statusline+=\ 
-
+" Close Vim if Nerd Tree is only thing open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
