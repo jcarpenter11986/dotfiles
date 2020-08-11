@@ -13,9 +13,6 @@ set path+=**
 set wildmenu
 set wildmode=longest:full,full
 
-" Encoding
-set encoding=utf-8
-
 " Line numbering
 set number
 set relativenumber
