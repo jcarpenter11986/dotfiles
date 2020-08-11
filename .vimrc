@@ -28,10 +28,6 @@ set ignorecase
 " Match braces
 set showmatch
 
-" Splitting windows
-" set splitbelow
-" set splitright
-
 " Configure backspace so it acts as it should
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l,[,]
@@ -47,7 +43,7 @@ set whichwrap+=<,>,h,l,[,]
 packadd! dracula_pro
 syntax enable
 let g:dracula_colorterm=0
-colorscheme dracula_pro
+colorscheme dracula_pro_van_helsing
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   PYTHON SETTINGS
