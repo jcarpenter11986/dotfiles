@@ -1,10 +1,4 @@
 ##############################################################################
-#                              CURRENT SYSTEM CHECK
-##############################################################################
-
-current_system=$(uname)
-
-##############################################################################
 #                              PROMPT
 ##############################################################################
 
@@ -17,32 +11,18 @@ PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\] @ \[\033[0;36m\]\h \w\[
 #                              ALIASES
 ##############################################################################
 
-case $current_system in
-    'Darwin'*)
-        alias ls="ls -AGl"
-        ;;
-    'Linux'*)
-        alias ls="ls --color=auto -Al"
-        ;;
-    esac
-        
 alias graph="git log --all --oneline --graph --decorate"
 alias cp="cp -i"                        # confirm before overwriting something
 alias df='df -h'                        # human-readable sizes
 alias free='free -m'                    # show sizes in MB
 alias grep="grep --color=auto"
-alias t="todo.sh -ant"
-complete -F _todo t
 
 ##############################################################################
 #                              ENVARS
 ##############################################################################
 
 PATH+=:/Users/jcarpenter/bin
-PATH+=:/Users/jcarpenter/Dropbox/TodoTXT/
 PATH+=:/Users/jcarpenter/Library/Python/3.8/bin
-
-[ -f ~/.KEY_VALUE ] && source ~/.KEY_VALUE
 
 ##############################################################################
 #                              GLOBALS
@@ -65,7 +45,3 @@ if type brew &>/dev/null; then
     done
   fi
 fi
-
-# TODO.TXT
-source /Users/jcarpenter/Dropbox/TodoTXT/todo_completion
-export PATH="/usr/local/sbin:$PATH"
