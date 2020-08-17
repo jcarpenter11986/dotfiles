@@ -59,7 +59,6 @@ set shiftwidth=4
 set textwidth=70
 set expandtab
 set autoindent
-set fileformat=unix
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   PLUGIN SETTINGS
