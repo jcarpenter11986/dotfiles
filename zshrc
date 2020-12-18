@@ -98,3 +98,5 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias -g gam="/Users/jcarpenter/bin/gam/gam"
+
+# function gam() { "/Users/jcarpenter/bin/gam/gam" "$@" ; }
