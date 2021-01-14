@@ -1,5 +1,4 @@
-""" What do I want in Vim and can I do it without plugins?
-" Colorscheme
+""" What do I want in Vim and can I do it without plugins?  " Colorscheme
 " Syntax highlighting
 " Status line
 " Fuzzy find
@@ -28,11 +27,9 @@ set noruler noshowmode
 set scrolloff=8
 set colorcolumn=80
 set clipboard=unnamed
-set mouse=a
 set wildmenu
 set wildmode=longest:full,full
 set splitbelow splitright
-set path+=**
 set laststatus=2
 set cursorline
 set showmatch
@@ -41,6 +38,9 @@ set whichwrap+=<,>,h,l,[,]
 set fileformat=unix
 set encoding=utf-8
 set fileencoding=utf-8
+if !has('gui_running')
+      set t_Co=256
+  endif
 
 " Plugins
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -52,8 +52,8 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/fzf'
-Plug 'ap/vim-buftabline'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " Colorscheme
@@ -65,12 +65,18 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 " Lets
 let mapleader=" "
-let g:netrw_banner=0
+let python_highlight_all = 1
 let g:lightline = {
       \ 'colorscheme': 'dracula_pro',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
       \ }
-let python_highlight_all = 1
-let g:is_mouse_enabled = 1
+let $FZF_DEFAULT_COMMAND = "fd -t f -E \'*.{class,dll,exe,jar,o,pyc,so,war}\' . $(scmroot)"
 
 " Remaps
 nnoremap <C-h> :wincmd h<CR>
@@ -79,22 +85,18 @@ nnoremap <C-l> :wincmd l<CR>
 nnoremap <C-k> :wincmd k<CR>
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprevious<CR>
-nnoremap <leader>ff :FZF<CR>
-noremap <silent> <Leader>m :call ToggleMouse()<CR>
+nnoremap <silent> <leader>fb :Buffers<CR>
+nnoremap <silent> <leader>fc :Commits<CR>
+nnoremap <silent> <leader>fC :BCommits<CR>
+nnoremap <silent> <leader>ff :Files<CR>
+nnoremap <silent> <leader>fg :GFiles<CR>
+nnoremap <silent> <leader>fG :GFiles?<CR>
+nnoremap <silent> <leader>fh :History<CR>
+nnoremap <silent> <leader>fl :Lines<Space>
+nnoremap <silent> <leader>fr :Rg<Space>
 
 " Autocommands
 autocmd BufWritePre * %s/\s\+$//e
 autocmd InsertEnter * norm zz
 
 " Functions
-function ToggleMouse()
-    if g:is_mouse_enabled == 1
-        echo "Mouse OFF"
-        set mouse=
-        let g:is_mouse_enabled = 0
-    else
-        echo "Mouse ON"
-        set mouse=a
-        let g:is_mouse_enabled = 1
-    endif
-endfunction
