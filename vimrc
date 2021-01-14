@@ -52,6 +52,8 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf'
+Plug 'ap/vim-buftabline'
 call plug#end()
 
 " Colorscheme
@@ -74,8 +76,10 @@ let g:is_mouse_enabled = 1
 nnoremap <C-h> :wincmd h<CR>
 nnoremap <C-j> :wincmd j<CR>
 nnoremap <C-l> :wincmd l<CR>
-nnoremap <leader>h :split<Space>
-nnoremap <leader>v :vsplit<Space>
+nnoremap <C-k> :wincmd k<CR>
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprevious<CR>
+nnoremap <leader>ff :FZF<CR>
 noremap <silent> <Leader>m :call ToggleMouse()<CR>
 
 " Autocommands
