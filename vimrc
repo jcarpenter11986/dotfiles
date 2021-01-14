@@ -1,86 +1,88 @@
-" Plugins
-call plug#begin()
-Plug 'dracula/vim',{'as':'dracula'}
-Plug 'itchyny/lightline.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'ap/vim-buftabline'
-Plug 'vim-scripts/AutoComplPop'
-call plug#end()
+""" What do I want in Vim and can I do it without plugins?
+" Colorscheme
+" Syntax highlighting
+" Status line
+" Fuzzy find
+" Autocomplete or linting of some sort
+" Goto definition
+" Git integration
 
-" No vi
+filetype plugin on
+
+" Sane settings
 set nocompatible
-
-" Support for plugins and language indentation
-filetype plugin indent on
-
-" Fuzzy file search for CWD
-set path+=**
-set wildmenu
-set wildmode=longest:full,full
-
-" Line numbering
-set number
-set relativenumber
-
-" Buffers
-set hidden
-
-" Highlight cursorline
-set cursorline
-
-" Search options
-set hlsearch
-set incsearch
-set ignorecase
-
-" Match braces
-set showmatch
-
-" Configure backspace so it acts as it should
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l,[,]
-
-" Colorscheme and status line
-" https://draculatheme.com/vim
-syntax enable
-colorscheme dracula
-set laststatus=2
-set noshowmode
-let g:lightline = {
-      \ 'colorscheme': 'dracula',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-      \ }
-
-" Enable all Python syntax highlighting features
-let python_highlight_all = 1
-
-" Python friendly tabstops and indenting
-set tabstop=4
-set softtabstop=4
+set noerrorbells
+set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
-set autoindent
-
-" sane text files
+set smartindent
+set number relativenumber
+set nowrap
+set noswapfile
+set incsearch
+set nohlsearch
+set smartcase
+set ignorecase
+set hidden
+set noruler noshowmode
+set scrolloff=8
+set colorcolumn=80
+set clipboard=unnamed
+set mouse=a
+set wildmenu
+set wildmode=longest:full,full
+set splitbelow splitright
+set path+=**
+set laststatus=2
+set cursorline
+set showmatch
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l,[,]
 set fileformat=unix
 set encoding=utf-8
 set fileencoding=utf-8
 
-" indent/unindent with tab/shift-tab
-nmap <Tab> >>
-imap <S-Tab> <Esc><<i
-nmap <S-tab> <<
+" Plugins
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" mouse
-set mouse=a
+call plug#begin('~/.vim/plugged')
+Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-fugitive'
+call plug#end()
+
+" Colorscheme
+packadd! dracula_pro
+syntax enable
+let g:dracula_colorterm = 0
+colorscheme dracula_pro
+highlight ColorColumn ctermbg=0 guibg=lightgrey
+
+" Lets
+let mapleader=" "
+let g:netrw_banner=0
+let g:lightline = {
+      \ 'colorscheme': 'dracula_pro',
+      \ }
+let python_highlight_all = 1
 let g:is_mouse_enabled = 1
+
+" Remaps
+nnoremap <C-h> :wincmd h<CR>
+nnoremap <C-j> :wincmd j<CR>
+nnoremap <C-l> :wincmd l<CR>
+nnoremap <leader>h :split<Space>
+nnoremap <leader>v :vsplit<Space>
 noremap <silent> <Leader>m :call ToggleMouse()<CR>
+
+" Autocommands
+autocmd BufWritePre * %s/\s\+$//e
+autocmd InsertEnter * norm zz
+
+" Functions
 function ToggleMouse()
     if g:is_mouse_enabled == 1
         echo "Mouse OFF"
@@ -92,16 +94,3 @@ function ToggleMouse()
         let g:is_mouse_enabled = 1
     endif
 endfunction
-
-" copy, cut and paste
-vmap <C-c> "+y
-vmap <C-x> "+c
-vmap <C-v> c<ESC>"+p
-imap <C-v> <ESC>"+pa
-
-" Competion
-set complete+=kspell
-set completeopt=menuone,longest
-set shortmess+=c
-
-" ToDo
