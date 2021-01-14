@@ -100,3 +100,8 @@ source $ZSH/oh-my-zsh.sh
 alias -g gam="/Users/jcarpenter/bin/gam/gam"
 
 # function gam() { "/Users/jcarpenter/bin/gam/gam" "$@" ; }
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
