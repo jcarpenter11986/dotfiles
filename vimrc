@@ -54,6 +54,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " Colorscheme
@@ -76,7 +77,7 @@ let g:lightline = {
       \   'gitbranch': 'FugitiveHead'
       \ },
       \ }
-let $FZF_DEFAULT_COMMAND = "fd -t f -E \'*.{class,dll,exe,jar,o,pyc,so,war}\' . $(scmroot)"
+let $FZF_DEFAULT_COMMAND = "fd -t f -E \'*.{class,dll,exe,jar,o,pyc,so,war}\' . $(scmroot " . expand('%:p:h') . ")"
 
 " Remaps
 nnoremap <C-h> :wincmd h<CR>
@@ -100,3 +101,6 @@ autocmd BufWritePre * %s/\s\+$//e
 autocmd InsertEnter * norm zz
 
 " Functions
+
+" Source the Coc settings file
+source ~/dotfiles/coc.vim
