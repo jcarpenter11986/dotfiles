@@ -22,7 +22,6 @@ alias grep="grep --color=auto"
 ##############################################################################
 
 PATH+=:/Users/jcarpenter/bin
-PATH+=:/Users/jcarpenter/Library/Python/3.8/bin
 
 ##############################################################################
 #                              GLOBALS
