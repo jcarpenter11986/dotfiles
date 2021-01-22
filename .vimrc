@@ -24,7 +24,6 @@ set smartcase
 set ignorecase
 set hidden
 set noruler noshowmode
-set scrolloff=8
 set colorcolumn=80
 set clipboard=unnamed
 set wildmenu
