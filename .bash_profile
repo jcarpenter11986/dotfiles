@@ -15,7 +15,7 @@ alias graph="git log --all --oneline --graph --decorate"
 alias cp="cp -i"                        # confirm before overwriting something
 alias df='df -h'                        # human-readable sizes
 alias free='free -m'                    # show sizes in MB
-alias grep="grep --color=auto"
+alias ls="ls -G"                        # color output
 
 ##############################################################################
 #                              ENVARS
@@ -47,3 +47,8 @@ fi
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
+# BASH
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
+# FZF
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
