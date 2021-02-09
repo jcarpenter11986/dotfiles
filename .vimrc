@@ -1,4 +1,5 @@
-""" What do I want in Vim and can I do it without plugins?  " Colorscheme
+""" What do I want in Vim and can I do it without plugins?
+" Colorscheme
 " Syntax highlighting
 " Status line
 " Fuzzy find
@@ -49,6 +50,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -57,17 +59,15 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " Colorscheme
-packadd! dracula_pro
 syntax enable
-let g:dracula_colorterm = 0
-colorscheme dracula_pro
+colorscheme dracula
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 " Lets
 let mapleader=" "
 let python_highlight_all = 1
 let g:lightline = {
-      \ 'colorscheme': 'dracula_pro',
+      \ 'colorscheme': 'dracula',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -79,12 +79,6 @@ let g:lightline = {
 let $FZF_DEFAULT_COMMAND = "fd -t f -E \'*.{class,dll,exe,jar,o,pyc,so,war}\' . $(scmroot " . expand('%:p:h') . ")"
 
 " Remaps
-nnoremap <C-h> :wincmd h<CR>
-nnoremap <C-j> :wincmd j<CR>
-nnoremap <C-l> :wincmd l<CR>
-nnoremap <C-k> :wincmd k<CR>
-nnoremap <C-n> :bnext<CR>
-nnoremap <C-p> :bprevious<CR>
 nnoremap <silent> <leader>fb :Buffers<CR>
 nnoremap <silent> <leader>fc :Commits<CR>
 nnoremap <silent> <leader>fC :Commands<CR>
@@ -96,8 +90,7 @@ nnoremap <silent> <leader>fl :Lines<Space>
 nnoremap <silent> <leader>fr :Rg<Space>
 
 " Autocommands
-autocmd BufWritePre * %s/\s\+$//e
-autocmd InsertEnter * norm zz
+autocmd BufWritePre * %s/\s\+$//e " Gets rid of trailing whitespace
 
 " Functions
 
