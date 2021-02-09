@@ -45,6 +45,7 @@ if type brew &>/dev/null; then
   fi
 fi
 
+# ITERM2 SHELL INTEGRATION
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 # BASH
