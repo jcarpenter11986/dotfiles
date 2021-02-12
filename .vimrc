@@ -1,19 +1,11 @@
-""" What do I want in Vim and can I do it without plugins?
-" Colorscheme
-" Syntax highlighting
-" Status line
-" Fuzzy find
-" Autocomplete or linting of some sort
-" Goto definition
-" Git integration
-
 filetype plugin on
+filetype indent on
 
 " Sane settings
-set nocompatible
-set noerrorbells
-set tabstop=4 softtabstop=4
+set tabstop=4
+set softtabstop=4
 set shiftwidth=4
+set autoindent
 set expandtab
 set smartindent
 set number relativenumber
@@ -24,12 +16,11 @@ set nohlsearch
 set smartcase
 set ignorecase
 set hidden
-set noruler noshowmode
-set colorcolumn=80
+set noruler
+set noshowmode
 set clipboard=unnamed
 set wildmenu
 set wildmode=longest:full,full
-set splitbelow splitright
 set laststatus=2
 set cursorline
 set showmatch
@@ -37,10 +28,6 @@ set backspace=eol,start,indent
 set whichwrap+=<,>,h,l,[,]
 set fileformat=unix
 set encoding=utf-8
-set fileencoding=utf-8
-if !has('gui_running')
-      set t_Co=256
-  endif
 
 " Plugins
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -50,8 +37,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'itchyny/lightline.vim'
+Plug 'morhetz/gruvbox'
+Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -60,22 +47,12 @@ call plug#end()
 
 " Colorscheme
 syntax enable
-colorscheme dracula
-highlight ColorColumn ctermbg=0 guibg=lightgrey
+colorscheme gruvbox
+set background=dark
 
 " Lets
 let mapleader=" "
 let python_highlight_all = 1
-let g:lightline = {
-      \ 'colorscheme': 'dracula',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-      \ }
 let $FZF_DEFAULT_COMMAND = "fd -t f -E \'*.{class,dll,exe,jar,o,pyc,so,war}\' . $(scmroot " . expand('%:p:h') . ")"
 
 " Remaps
