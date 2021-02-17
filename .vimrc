@@ -22,7 +22,6 @@ set clipboard=unnamed
 set wildmenu
 set wildmode=longest:full,full
 set laststatus=2
-set cursorline
 set showmatch
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l,[,]
