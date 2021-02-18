@@ -19,6 +19,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'davidhalter/jedi-vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'mechatroner/rainbow_csv'
 call plug#end()
 
 " Colorscheme
@@ -38,23 +39,15 @@ set wildmenu wildmode=longest:full,full " better command line completion
 set nowrap " don't wrap lines at end of screen
 set expandtab " use tab key to automatically put in the necessary spaces
 set hlsearch ignorecase incsearch smartcase " intuitive search features
+let mapleader = " "
 autocmd BufWritePre * %s/\s\+$//e " remove trailing whitespace on save
-let mapleader=" " " map leader key to spacebar
 
-" Global keymap
-    " navigate and manage windows
-    nnoremap <leader>h :wincmd h<cr>
-    nnoremap <leader>l :wincmd l<cr>
-    nnoremap <leader>j :wincmd j<cr>
-    nnoremap <leader>k :wincmd k<cr>
+" navigate buffers
+nnoremap <c-j> :bn<cr>
+nnoremap <c-k> :bp<cr>
 
-    " navigate and manage buffers
-    nnoremap <leader>] :bn<cr>
-    nnoremap <leader>[ :bp<cr>
-    nnoremap <leader><backspace> :bd<cr>
-
-    " Save work and remove highlights
-    nnoremap <leader><space> :nohl <bar> :w<cr>
+" Save work and remove highlights
+nnoremap <leader><space> :nohl <bar> :w<cr>
 
 " Python settings
 autocmd FileType python
