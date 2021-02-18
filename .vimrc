@@ -1,77 +1,77 @@
-filetype plugin on
-filetype indent on
-
-" Sane settings
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set autoindent
-set expandtab
-set smartindent
-set number relativenumber
-set nowrap
-set noswapfile
-set incsearch
-set nohlsearch
-set smartcase
-set ignorecase
-set hidden
-set noruler
-set noshowmode
-set clipboard=unnamed
-set wildmenu
-set wildmode=longest:full,full
-set laststatus=2
-set showmatch
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l,[,]
-set fileformat=unix
-set encoding=utf-8
-set splitright
-set splitbelow
-
-" Plugins
+" Install vim-plug if not found
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+
 call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
+Plug 'ap/vim-buftabline'
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'airblade/vim-gitgutter'
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"Plug 'junegunn/fzf.vim'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " Colorscheme
-syntax enable
-colorscheme gruvbox
-set background=dark
+if !empty(glob('~/.vim/plugged/gruvbox/'))
+  colorscheme gruvbox
+  set background=dark
+endif
 
-" Lets
-let mapleader=" "
-let python_highlight_all = 1
-let $FZF_DEFAULT_COMMAND = "fd -t f -E \'*.{class,dll,exe,jar,o,pyc,so,war}\' . $(scmroot " . expand('%:p:h') . ")"
+" Global setting
+set splitbelow splitright " split windows more intuitively
+set backspace=eol,start,indent " backspace works like other editors
+set number relativenumber " rel numbering but with current line number visible
+set clipboard=unnamed " use the system clipboard by default
+set nobackup noswapfile " controversial, but I hate swap and backup files
+set hidden " keep all buffers open in the background
+set wildmenu wildmode=longest:full,full " better command line completion
+set nowrap " don't wrap lines at end of screen
+set expandtab " use tab key to automatically put in the necessary spaces
+set hlsearch ignorecase incsearch smartcase " intuitive search features
+autocmd BufWritePre * %s/\s\+$//e " remove trailing whitespace on save
+let mapleader=" " " map leader key to spacebar
 
-" Remaps
-autocmd FileType python map <f5> :terminal python3 "%"<CR>
-nnoremap <silent> <leader>fb :Buffers<CR>
-nnoremap <silent> <leader>fc :Commits<CR>
-nnoremap <silent> <leader>fC :Commands<CR>
-nnoremap <silent> <leader>ff :Files<CR>
-nnoremap <silent> <leader>fg :GFiles<CR>
-nnoremap <silent> <leader>fG :GFiles?<CR>
-nnoremap <silent> <leader>fh :History<CR>
-nnoremap <silent> <leader>fl :Lines<Space>
-nnoremap <silent> <leader>fr :Rg<Space>
+" Global keymap
+    " navigate and manage windows
+    nnoremap <leader>h :wincmd h<cr>
+    nnoremap <leader>l :wincmd l<cr>
+    nnoremap <leader>j :wincmd j<cr>
+    nnoremap <leader>k :wincmd k<cr>
 
-" Autocommands
-autocmd BufWritePre * %s/\s\+$//e " Gets rid of trailing whitespace
+    " navigate and manage buffers
+    nnoremap <leader>] :bn<cr>
+    nnoremap <leader>[ :bp<cr>
+    nnoremap <leader><backspace> :bd<cr>
 
-" Functions
+    " Save work and remove highlights
+    nnoremap <leader><space> :nohl <bar> :w<cr>
+
+" Python specific settings
+autocmd FileType python " save and run code in another window
+    \ nnoremap <buffer> <leader><cr>
+    \ :w <bar> :terminal python3 "%"<cr>
 
 " Source the Coc settings file
-source ~/dotfiles/coc.vim
+"source ~/dotfiles/coc.vim
+
+" FZF settings
+"let $FZF_DEFAULT_COMMAND = "fd -t f -E \'*.{class,dll,exe,jar,o,pyc,so,war}\' . $(scmroot " . expand('%:p:h') . ")"
+"nnoremap <silent> <leader>fb :Buffers<CR>
+"nnoremap <silent> <leader>fc :Commits<CR>
+"nnoremap <silent> <leader>fC :Commands<CR>
+"nnoremap <silent> <leader>ff :Files<CR>
+"nnoremap <silent> <leader>fg :GFiles<CR>
+"nnoremap <silent> <leader>fG :GFiles?<CR>
+"nnoremap <silent> <leader>fh :History<CR>
+"nnoremap <silent> <leader>fl :Lines<Space>
+"nnoremap <silent> <leader>fr :Rg<Space>
