@@ -27,6 +27,8 @@ set backspace=eol,start,indent
 set whichwrap+=<,>,h,l,[,]
 set fileformat=unix
 set encoding=utf-8
+set splitright
+set splitbelow
 
 " Plugins
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -55,6 +57,7 @@ let python_highlight_all = 1
 let $FZF_DEFAULT_COMMAND = "fd -t f -E \'*.{class,dll,exe,jar,o,pyc,so,war}\' . $(scmroot " . expand('%:p:h') . ")"
 
 " Remaps
+autocmd FileType python map <f5> :terminal python3 "%"<CR>
 nnoremap <silent> <leader>fb :Buffers<CR>
 nnoremap <silent> <leader>fc :Commits<CR>
 nnoremap <silent> <leader>fC :Commands<CR>
