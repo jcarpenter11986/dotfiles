@@ -57,7 +57,7 @@ let mapleader=" " " map leader key to spacebar
     nnoremap <leader><space> :nohl <bar> :w<cr>
 
 " Python settings
-autocmd FileType python " save and run code in another window
+autocmd FileType python
     \ nnoremap <buffer> <leader><cr>
     \ :w <bar> :terminal python3 "%"<cr>
 
