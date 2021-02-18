@@ -1,4 +1,4 @@
-" Install vim-plug if not found
+"gInstall vim-plug if not found
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -17,8 +17,8 @@ Plug 'ap/vim-buftabline'
 Plug 'tpope/vim-fugitive'
 Plug 'jiangmiao/auto-pairs'
 Plug 'davidhalter/jedi-vim'
-"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-"Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " Colorscheme
@@ -56,7 +56,15 @@ let mapleader=" " " map leader key to spacebar
     " Save work and remove highlights
     nnoremap <leader><space> :nohl <bar> :w<cr>
 
-" Python specific settings
+" Python settings
 autocmd FileType python " save and run code in another window
     \ nnoremap <buffer> <leader><cr>
     \ :w <bar> :terminal python3 "%"<cr>
+
+" FZF settings
+nnoremap <silent> <leader>ff :Files<cr>
+nnoremap <silent> <leader>fl :Lines<cr>
+nnoremap <silent> <leader>fF :GFiles<cr>
+nnoremap <silent> <leader>fL :BLines<cr>
+nnoremap <silent> <leader>fC :Commits<cr>
+nnoremap <silent> <leader>fg :Rg<cr>
