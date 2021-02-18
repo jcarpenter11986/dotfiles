@@ -16,9 +16,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'ap/vim-buftabline'
 Plug 'tpope/vim-fugitive'
 Plug 'jiangmiao/auto-pairs'
+Plug 'davidhalter/jedi-vim'
 "Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 "Plug 'junegunn/fzf.vim'
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " Colorscheme
@@ -60,18 +60,3 @@ let mapleader=" " " map leader key to spacebar
 autocmd FileType python " save and run code in another window
     \ nnoremap <buffer> <leader><cr>
     \ :w <bar> :terminal python3 "%"<cr>
-
-" Source the Coc settings file
-"source ~/dotfiles/coc.vim
-
-" FZF settings
-"let $FZF_DEFAULT_COMMAND = "fd -t f -E \'*.{class,dll,exe,jar,o,pyc,so,war}\' . $(scmroot " . expand('%:p:h') . ")"
-"nnoremap <silent> <leader>fb :Buffers<CR>
-"nnoremap <silent> <leader>fc :Commits<CR>
-"nnoremap <silent> <leader>fC :Commands<CR>
-"nnoremap <silent> <leader>ff :Files<CR>
-"nnoremap <silent> <leader>fg :GFiles<CR>
-"nnoremap <silent> <leader>fG :GFiles?<CR>
-"nnoremap <silent> <leader>fh :History<CR>
-"nnoremap <silent> <leader>fl :Lines<Space>
-"nnoremap <silent> <leader>fr :Rg<Space>
