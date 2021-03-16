@@ -7,7 +7,6 @@ endif
 
 " Plugins
 call plug#begin('~/.vim/plugged')
-Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'ap/vim-buftabline'
 Plug 'tpope/vim-fugitive'
@@ -18,10 +17,10 @@ Plug 'mechatroner/rainbow_csv'
 call plug#end()
 
 " Colorscheme
-if !empty(glob('~/.vim/plugged/gruvbox/'))
-  colorscheme gruvbox
-  set background=dark
-endif
+packadd! dracula_pro
+syntax enable
+let g:dracula_colorterm=0
+colorscheme dracula_pro_blade
 
 " Global setting
 set splitbelow splitright " split windows more intuitively
@@ -40,12 +39,13 @@ autocmd BufWritePre * %s/\s\+$//e " remove trailing whitespace on save
 augroup python
   autocmd FileType python
       \ nnoremap <buffer> <leader><cr>
-      \ :w <bar> :terminal python3 "%"<cr> " Run current python script
+      \ :w <bar> :terminal python3 "%"<cr>
 augroup END
 
 " CSV
 augroup csv
-  autocmd FileType csv nnoremap <leader><cr> :w <bar> !clear && mlr --icsv --opprint --barred cat "%"<cr>
+  autocmd FileType csv nnoremap <leader>x :w <bar> !clear && mlr --icsv --oxtab cat "%"<cr>
+  autocmd FileType csv nnoremap <leader>p :w <bar> !clear && mlr --icsv --opprint cat "%"<cr>
 augroup END
 
 " Key remaps
