@@ -11,10 +11,9 @@ packadd! dracula_pro
 " Plugins
 call plug#begin('~/.vim/plugged')
 Plug 'davidhalter/jedi-vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'ervandew/supertab'
+Plug '/usr/local/opt/fzf'
 call plug#end()
 
 " Colorscheme
@@ -43,6 +42,5 @@ set hlsearch ignorecase incsearch smartcase " intuitive search features
 autocmd BufWritePre * %s/\s\+$//e " remove trailing whitespace on save
 
 " Key remaps
-nnoremap <c-p> :Files<cr>
 nnoremap <c-j> :bp<cr>
 nnoremap <c-k> :bn<cr>
