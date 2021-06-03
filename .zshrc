@@ -70,11 +70,7 @@ ZSH_THEME="dracula"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-<<<<<<< HEAD
 plugins=(git zsh-autosuggestions git-auto-fetch)
-=======
-plugins=(git zsh-autosuggestions)
->>>>>>> f1a525a45c717261dd451c48916a3586e0fcdbba
 
 source $ZSH/oh-my-zsh.sh
 
