@@ -42,6 +42,7 @@ set wildmenu wildmode=longest:full,full " better command line completion
 set nowrap " don't wrap lines at end of screen
 set expandtab " use tab key to automatically put in the necessary spaces
 set hlsearch ignorecase incsearch smartcase " intuitive search features
+set noswapfile
 autocmd BufWritePre * %s/\s\+$//e " remove trailing whitespace on save
 
 " Key remaps
