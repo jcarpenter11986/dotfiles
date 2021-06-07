@@ -5,29 +5,32 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" Activate Dracula Pro
-packadd! dracula_pro
-
 " Plugins
 call plug#begin('~/.vim/plugged')
-Plug 'davidhalter/jedi-vim'
-Plug 'itchyny/lightline.vim'
-Plug 'ervandew/supertab'
-Plug '/usr/local/opt/fzf'
+Plug 'dracula/vim', { 'as': 'dracula' } " Dracula color scheme
+Plug 'itchyny/lightline.vim' " A minimalist status line
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'preservim/nerdtree'
 call plug#end()
 
 " Colorscheme
 syntax enable
-let g:dracula_colorterm = 0
-colorscheme dracula_pro
+let g:dracula_colorterm = 0 " Get rid of weird gray background
+colorscheme dracula
 set laststatus=2
-set noshowmode
-if !has('gui_running')
-  set t_Co=256
-endif
-let g:lightline =  {
-  \ 'colorscheme': 'dracula_pro',
-  \ }
+set noshowmode " Let the status line do the work
+let g:lightline = {
+      \ 'colorscheme': 'dracula',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
 
 " Global setting
 set splitbelow splitright " split windows more intuitively
@@ -44,3 +47,5 @@ autocmd BufWritePre * %s/\s\+$//e " remove trailing whitespace on save
 " Key remaps
 nnoremap <c-j> :bp<cr>
 nnoremap <c-k> :bn<cr>
+nnoremap <c-p> :Files<cr>
+nnoremap <c-o> :NERDTreeToggle<cr>
