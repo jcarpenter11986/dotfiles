@@ -13,6 +13,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdtree'
+Plug 'ap/vim-buftabline'
 call plug#end()
 
 " Colorscheme
@@ -48,5 +49,7 @@ autocmd BufWritePre * %s/\s\+$//e " remove trailing whitespace on save
 " Key remaps
 nnoremap <c-j> :bp<cr>
 nnoremap <c-k> :bn<cr>
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
 nnoremap <c-p> :Files<cr>
 nnoremap <c-o> :NERDTreeToggle<cr>
