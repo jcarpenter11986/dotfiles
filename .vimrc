@@ -10,10 +10,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'dracula/vim', { 'as': 'dracula' } " Dracula color scheme
 Plug 'itchyny/lightline.vim' " A minimalist status line
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'preservim/nerdtree'
-Plug 'ap/vim-buftabline'
+Plug 'junegunn/fzf.vim' " Fuzzy file finding
+Plug 'tpope/vim-fugitive' " Git integration
+Plug 'preservim/nerdtree' " Awesome file explorer
+Plug 'ap/vim-buftabline' " Visually keep track of buffers
 call plug#end()
 
 " Colorscheme
