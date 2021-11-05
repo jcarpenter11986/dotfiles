@@ -9,10 +9,6 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'dracula/vim', { 'as': 'dracula' } " Dracula color scheme
 Plug 'itchyny/lightline.vim' " A minimalist status line
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim' " Fuzzy file finding
-Plug 'tpope/vim-fugitive' " Git integration
-Plug 'preservim/nerdtree' " Awesome file explorer
 Plug 'ap/vim-buftabline' " Visually keep track of buffers
 call plug#end()
 
@@ -51,5 +47,3 @@ nnoremap <c-j> :bp<cr>
 nnoremap <c-k> :bn<cr>
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
-nnoremap <c-p> :Files<cr>
-nnoremap <c-o> :NERDTreeToggle<cr>
