@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/Users/jcarpenter/Desktop'
+let g:netrw_dirhist_4='/Users/jcarpenter'
+let g:netrw_dirhist_3='/Users/jcarpenter/Desktop/Webhook Catcher'
+let g:netrw_dirhist_2='/Users/jcarpenter/Repositories/auto_ticket'
+let g:netrw_dirhist_1='/Users/jcarpenter/Desktop/FastAPI'
+let g:netrw_dirhist_0='/Users/jcarpenter/Repositories/asm'
+let g:netrw_dirhist_9='/Users/jcarpenter/Repositories/dotfiles'
+let g:netrw_dirhist_8='/Users/jcarpenter/Repositories/dotfiles/vim'
+let g:netrw_dirhist_7='/Users/jcarpenter/Repositories/dotfiles'
+let g:netrw_dirhist_6='/Users/jcarpenter/Repositories/dotfiles/vim'

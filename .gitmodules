@@ -1,0 +1,6 @@
+[submodule "/Users/jcarpenter/Repositories/dotfiles/.vim/pack/plugins/start/supertab"]
+	path = /Users/jcarpenter/Repositories/dotfiles/.vim/pack/plugins/start/supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "/Users/jcarpenter/Repositories/dotfiles/.vim/pack/plugins/start/lightline"]
+	path = /Users/jcarpenter/Repositories/dotfiles/.vim/pack/plugins/start/lightline
+	url = https://github.com/itchyny/lightline.vim
