@@ -4,3 +4,6 @@
 [submodule "/Users/jcarpenter/Repositories/dotfiles/.vim/pack/plugins/start/lightline"]
 	path = /Users/jcarpenter/Repositories/dotfiles/.vim/pack/plugins/start/lightline
 	url = https://github.com/itchyny/lightline.vim
+[submodule ".oh-my-zsh"]
+	path = .oh-my-zsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
