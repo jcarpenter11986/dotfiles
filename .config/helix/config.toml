@@ -1,0 +1,27 @@
+theme = "tokyonight_storm"
+
+[editor]
+line-number = "relative"
+cursorline = true
+color-modes = true
+
+[editor.statusline]
+left = ["mode", "spinner"]
+center = ["file-name"]
+right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+separator = "│"
+
+[editor.lsp]
+display-messages = true
+
+[editor.whitespace.render]
+space = "all"
+tab = "all"
+newline = "none"
+
+[editor.indent-guides]
+render = true
+character = "|"
+
+[keys.normal]
+C-s = ":w"
