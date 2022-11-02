@@ -1,54 +1,60 @@
-" Plugins
-packadd! dracula_pro
+"  ____  _                 _       __     _____ __  __
+" / ___|(_)_ __ ___  _ __ | | ___  \ \   / /_ _|  \/  |
+" \___ \| | '_ ` _ \| '_ \| |/ _ \  \ \ / / | || |\/| |
+"  ___) | | | | | | | |_) | |  __/   \ V /  | || |  | |
+" |____/|_|_| |_| |_| .__/|_|\___|    \_/  |___|_|  |_|
+"                   |_|
 
-" Colorscheme
-syntax enable
-let g:dracula_colorterm=0
-colorscheme dracula_pro
-set laststatus=2
-set noshowmode " Let the status line do the work
-let g:lightline = {
-  \ 'colorscheme': 'dracula_pro',
-  \}
 
-" Global setting
-set splitbelow splitright " split windows more intuitively
+" This is a very basic .vimrc for woring on remote machines
+" with zero terminal editor configs
+
+" Basic Vim settings
+set nocompatible
+filetype indent on
+
+" Editor behavior
 set backspace=eol,start,indent " backspace works like other editors
-set number relativenumber " rel numbering but with current line number visible
 set clipboard=unnamed " use the system clipboard by default
 set hidden " keep all buffers open in the background
-set wildmenu wildmode=longest:full,full " better command line completion
 set nowrap " don't wrap lines at end of screen
-set expandtab " use tab key to automatically put in the necessary spaces
-set hlsearch ignorecase incsearch smartcase " intuitive search features
 set noswapfile
-set mouse=a
 autocmd BufWritePre * %s/\s\+$//e " remove trailing whitespace on save
 
-" Key remaps
-nnoremap <c-j> :bp<cr>
-nnoremap <c-k> :bn<cr>
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
-nnoremap <c-p> :FZF<CR>
+" Syntax and colors
+syntax enable
+colorscheme habamax
+hi Normal guibg=NONE ctermbg=None
+" ToDo: Tokyonight theme without a plugin manager
 
-" FZF
-set rtp+=/usr/local/opt/fzf
-" - Popup window (anchored to the bottom of the current window)
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'relative': v:true, 'yoffset': 1.0 } }
-" Customize fzf colors to match your color scheme
-" - fzf#wrap translates this to a set of `--color` options
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
+" Fuzzy finding
+set path+=**
+set wildmenu
+set wildoptions=pum
+
+" Line Numbers and Gutters
+set number relativenumber
+
+" Tabs and indents
+set shiftwidth=4
+set tabstop=4
+set expandtab
+set autoindent
+set smartindent
+
+" Search
+set hlsearch
+set incsearch
+
+" Cursor
+set cursorline
+if has("autocmd") "remember last cursor position
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" Statusline
+set laststatus=2
+set noshowmode
+
+" Mouse
+set mouse=a
