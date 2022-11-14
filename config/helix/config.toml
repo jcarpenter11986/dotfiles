@@ -1,4 +1,4 @@
-theme = "tokyonight_storm"
+theme = "dracula"
 
 [editor]
 line-number = "relative"

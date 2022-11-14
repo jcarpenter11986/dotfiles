@@ -13,6 +13,23 @@
 set nocompatible
 filetype indent on
 
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Plugins
+call plug#begin('~/.vim/plugged')
+Plug 'dracula/vim', { 'as': 'dracula' } " Dracula color scheme
+Plug 'itchyny/lightline.vim' " A minimalist status line
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'ap/vim-buftabline'
+call plug#end()
+
 " Editor behavior
 set backspace=eol,start,indent " backspace works like other editors
 set clipboard=unnamed " use the system clipboard by default
@@ -23,9 +40,21 @@ autocmd BufWritePre * %s/\s\+$//e " remove trailing whitespace on save
 
 " Syntax and colors
 syntax enable
-colorscheme habamax
+let g:dracula_colorterm = 0 " Get rid of weird gray background
+colorscheme dracula
+set laststatus=2
+set noshowmode " Let the status line do the work
+let g:lightline = {
+      \ 'colorscheme': 'dracula',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
 hi Normal guibg=NONE ctermbg=None
-" ToDo: Tokyonight theme without a plugin manager
 
 " Fuzzy finding
 set path+=**
@@ -51,10 +80,6 @@ set cursorline
 if has("autocmd") "remember last cursor position
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
-
-" Statusline
-set laststatus=2
-set noshowmode
 
 " Mouse
 set mouse=a
