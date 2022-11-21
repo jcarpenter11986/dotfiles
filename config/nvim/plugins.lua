@@ -16,29 +16,32 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    use 'neovim/nvim-lspconfig'
-    use 'williamboman/mason.nvim'
-    use 'williamboman/mason-lspconfig.nvim'
-    use 'nvim-lua/plenary.nvim'
+
+    -- Color scheme and status line
+    use 'folke/tokyonight.nvim'
+    use {
+	'nvim-lualine/lualine.nvim',
+	requires = { 'kyazdani42/nvim-web-devicons', opt = false }
+    }
+
+
+    -- Fuzzy finder
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        -- or                            , branch = '0.1.x',
+        requires = { {'nvim-lua/plenary.nvim'} }
+        }
     use {
         'nvim-treesitter/nvim-treesitter',
         run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     }
-    use {
-        'nvim-telescope/telescope.nvim', branch = '0.1.x',
-        requires = { { 'nvim-lua/plenary.nvim' } }
-    }
-    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-    use {
-        'ThePrimeagen/harpoon',
-        requires = { { 'nvim-lua/plenary.nvim' } }
-    }
-    use 'tpope/vim-fugitive'
-    use 'folke/tokyonight.nvim'
-    use {
-	  'nvim-lualine/lualine.nvim',
-	    requires = { 'kyazdani42/nvim-web-devicons', opt = false }
-	}
+
+
+    -- LSP
+     use 'neovim/nvim-lspconfig'
+     use 'williamboman/mason.nvim'
+     use 'williamboman/mason-lspconfig.nvim'
+
 
     -- If packer was just installed, install the plugins
     -- This must go after all plugins

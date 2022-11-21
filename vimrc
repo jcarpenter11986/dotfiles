@@ -1,13 +1,11 @@
-"  ____  _                 _       __     _____ __  __
-" / ___|(_)_ __ ___  _ __ | | ___  \ \   / /_ _|  \/  |
-" \___ \| | '_ ` _ \| '_ \| |/ _ \  \ \ / / | || |\/| |
-"  ___) | | | | | | | |_) | |  __/   \ V /  | || |  | |
-" |____/|_|_| |_| |_| .__/|_|\___|    \_/  |___|_|  |_|
-"                   |_|
+"     _ _            __     ___
+"    | (_)_ __ ___   \ \   / (_)_ __ ___  _ __ ___
+" _  | | | '_ ` _ \   \ \ / /| | '_ ` _ \| '__/ __|
+"| |_| | | | | | | |   \ V / | | | | | | | | | (__
+" \___/|_|_| |_| |_|    \_/  |_|_| |_| |_|_|  \___|
+"
 
-
-" This is a very basic .vimrc for woring on remote machines
-" with zero terminal editor configs
+" My vimrc config for when I don't have neovim.
 
 " Basic Vim settings
 set nocompatible
@@ -22,12 +20,12 @@ endif
 
 " Plugins
 call plug#begin('~/.vim/plugged')
-Plug 'dracula/vim', { 'as': 'dracula' } " Dracula color scheme
+Plug 'ghifarit53/tokyonight-vim'
 Plug 'itchyny/lightline.vim' " A minimalist status line
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'ap/vim-buftabline'
+" Plug 'ap/vim-buftabline'
 call plug#end()
 
 " Editor behavior
@@ -40,26 +38,15 @@ autocmd BufWritePre * %s/\s\+$//e " remove trailing whitespace on save
 
 " Syntax and colors
 syntax enable
-let g:dracula_colorterm = 0 " Get rid of weird gray background
-colorscheme dracula
+set termguicolors
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 0
+let g:tokyonight_transparent_background = 1
+let g:tokyonight_disable_italic_comment = 1
+let g:lightline = {'colorscheme' : 'tokyonight'}
+colorscheme tokyonight
 set laststatus=2
 set noshowmode " Let the status line do the work
-let g:lightline = {
-      \ 'colorscheme': 'dracula',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-      \ }
-hi Normal guibg=NONE ctermbg=None
-
-" Fuzzy finding
-set path+=**
-set wildmenu
-set wildoptions=pum
 
 " Line Numbers and Gutters
 set number relativenumber

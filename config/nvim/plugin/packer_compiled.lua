@@ -74,11 +74,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  harpoon = {
-    loaded = true,
-    path = "/Users/jcarpenter/.local/share/nvim/site/pack/packer/start/harpoon",
-    url = "https://github.com/ThePrimeagen/harpoon"
-  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/Users/jcarpenter/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -119,11 +114,6 @@ _G.packer_plugins = {
     path = "/Users/jcarpenter/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["telescope-fzf-native.nvim"] = {
-    loaded = true,
-    path = "/Users/jcarpenter/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
-    url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/jcarpenter/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -133,11 +123,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/jcarpenter/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
-  },
-  ["vim-fugitive"] = {
-    loaded = true,
-    path = "/Users/jcarpenter/.local/share/nvim/site/pack/packer/start/vim-fugitive",
-    url = "https://github.com/tpope/vim-fugitive"
   }
 }
 
