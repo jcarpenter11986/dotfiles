@@ -76,7 +76,8 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages)
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+plugins=(git colored-man-pages zsh-autosuggestions zsh-autocomplete)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -112,8 +113,6 @@ bindkey -e
 # The following lines were added by compinstall
 zstyle :compinstall filename '/Users/jcarpenter/.zshrc'
 
-autoload -Uz compinit
-compinit
 # End of lines added by compinstall
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
