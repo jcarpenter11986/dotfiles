@@ -70,7 +70,6 @@ else
     zsh_custom_dir=${ZSH_CUSTOM:-"$oh_my_zsh_dir/custom"}
     dracula_dir="$zsh_custom_dir/themes/dracula"
     autosuggestions_dir="$zsh_custom_dir/plugins/zsh-autosuggestions"
-    autocomplete_dir="$zsh_custom_dir/plugins/zsh-autocomplete"
 
     if install_git_repo \
         'https://github.com/ohmyzsh/ohmyzsh.git' \
@@ -92,11 +91,6 @@ else
             'https://github.com/zsh-users/zsh-autosuggestions.git' \
             "$autosuggestions_dir" \
             'zsh-autosuggestions' || exit_status=1
-
-        install_git_repo \
-            'https://github.com/marlonrichert/zsh-autocomplete.git' \
-            "$autocomplete_dir" \
-            'zsh-autocomplete' || exit_status=1
     else
         exit_status=1
     fi

@@ -1,6 +1,12 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/.cargo/bin:$HOME/.local/bin:/opt/homebrew/bin:$HOME/bin:/usr/local/bin:$PATH
 
+# Configure Homebrew, including its Zsh completion directory.
+if command -v brew >/dev/null 2>&1; then
+    eval "$(brew shellenv)"
+    typeset -U fpath FPATH
+fi
+
 # Make sure Oh-My-ZSH is installed
 if [ ! -d ~/.oh-my-zsh/ ]
 then
@@ -76,8 +82,9 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-plugins=(git colored-man-pages zsh-autosuggestions zsh-autocomplete)
+plugins=(zsh-autosuggestions git colored-man-pages brew)
 
 source $ZSH/oh-my-zsh.sh
 
